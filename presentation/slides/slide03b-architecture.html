@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+.header { background: #181B24; padding: 18pt 40pt; }
+.header h1 { color: #B165FB; font-size: 28pt; margin: 0; }
+.content { padding: 12pt 40pt 50pt 40pt; flex: 1; display: flex; gap: 20pt; }
+.flow-col { flex: 1; }
+.flow-col h2 { color: #181B24; font-size: 15pt; margin: 0 0 6pt 0; text-align: center; }
+.flow-box { background: #F4F6F6; padding: 7pt; margin: 3pt 0; border-radius: 6pt; text-align: center; border-left: 4pt solid #40695B; }
+.flow-box p { color: #2E4053; font-size: 12pt; margin: 0; font-weight: bold; }
+.flow-box.ai { border-left-color: #B165FB; background: #F3E5FF; }
+.flow-box.local { border-left-color: #40695B; background: #E8F5E9; }
+.flow-box.cloud { border-left-color: #FE4447; background: #FFEBEE; }
+.arrow p { color: #B165FB; font-size: 16pt; text-align: center; margin: 1pt 0; }
+.label { color: #2E4053; font-size: 9pt; text-align: center; margin: 1pt 0; font-style: italic; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>MCP Architecture: How It Works</h1>
+</div>
+<div class="content">
+  <div class="flow-col">
+    <h2>Conference MCP (Local)</h2>
+    <div class="flow-box">
+      <p>👤 User Query</p>
+    </div>
+    <div class="arrow"><p>↓</p></div>
+    <div class="flow-box ai">
+      <p>🤖 AI Model</p>
+    </div>
+    <p class="label">Chooses tool</p>
+    <div class="arrow"><p>↓</p></div>
+    <div class="flow-box local">
+      <p>⚙️ MCP Server</p>
+    </div>
+    <p class="label">SQL query</p>
+    <div class="arrow"><p>↓</p></div>
+    <div class="flow-box local">
+      <p>💾 Database</p>
+    </div>
+    <p class="label">Local only</p>
+  </div>
+
+  <div class="flow-col">
+    <h2>Graph MCP (Enterprise)</h2>
+    <div class="flow-box">
+      <p>👤 User Query</p>
+    </div>
+    <div class="arrow"><p>↓</p></div>
+    <div class="flow-box ai">
+      <p>🤖 AI Model</p>
+    </div>
+    <p class="label">Composition</p>
+    <div class="arrow"><p>↓</p></div>
+    <div class="flow-box local">
+      <p>⚙️ MCP Server</p>
+    </div>
+    <p class="label">OAuth + API</p>
+    <div class="arrow"><p>↓</p></div>
+    <div class="flow-box cloud">
+      <p>☁️ Graph API</p>
+    </div>
+    <p class="label">Secure call</p>
+  </div>
+</div>
+</body>
+</html>

@@ -25,36 +25,40 @@ async function createPresentation() {
     console.log('Processing Slide 3: What is MCP...');
     await html2pptx(path.join(slidesDir, 'slide03-what-is-mcp.html'), pptx);
 
-    // Slide 4: Local AI Advantage
-    console.log('Processing Slide 4: Local AI Advantage...');
+    // Slide 4: MCP Architecture
+    console.log('Processing Slide 4: MCP Architecture...');
+    await html2pptx(path.join(slidesDir, 'slide03b-architecture.html'), pptx);
+
+    // Slide 5: Local AI Advantage
+    console.log('Processing Slide 5: Local AI Advantage...');
     await html2pptx(path.join(slidesDir, 'slide04-local-ai.html'), pptx);
 
-    // Slide 5: What Stays Local
-    console.log('Processing Slide 5: What Stays Local vs What Travels...');
+    // Slide 6: What Stays Local
+    console.log('Processing Slide 6: What Stays Local vs What Travels...');
     await html2pptx(path.join(slidesDir, 'slide05-what-stays-local.html'), pptx);
 
-    // Slide 6: Demo 1 Intro
-    console.log('Processing Slide 6: Demo #1 Intro...');
+    // Slide 7: Demo 1 Intro
+    console.log('Processing Slide 7: Demo #1 Intro...');
     await html2pptx(path.join(slidesDir, 'slide06-demo1-intro.html'), pptx);
 
-    // Slide 7: Demo 1 Results
-    console.log('Processing Slide 7: Demo #1 Results...');
+    // Slide 8: Demo 1 Results
+    console.log('Processing Slide 8: Demo #1 Results...');
     await html2pptx(path.join(slidesDir, 'slide07-demo1-results.html'), pptx);
 
-    // Slide 8: Demo 2 Intro
-    console.log('Processing Slide 8: Demo #2 Intro...');
+    // Slide 9: Demo 2 Intro
+    console.log('Processing Slide 9: Demo #2 Intro...');
     await html2pptx(path.join(slidesDir, 'slide08-demo2-intro.html'), pptx);
 
-    // Slide 9: MCP Composition
-    console.log('Processing Slide 9: MCP Composition...');
+    // Slide 10: MCP Composition
+    console.log('Processing Slide 10: MCP Composition...');
     await html2pptx(path.join(slidesDir, 'slide09-mcp-composition.html'), pptx);
 
-    // Slide 10: Privacy Benefits
-    console.log('Processing Slide 10: Privacy Benefits...');
+    // Slide 11: Privacy Benefits
+    console.log('Processing Slide 11: Privacy Benefits...');
     await html2pptx(path.join(slidesDir, 'slide10-privacy-benefits.html'), pptx);
 
-    // Slide 11: Cost Benefits with Chart
-    console.log('Processing Slide 11: Cost Benefits...');
+    // Slide 12: Cost Benefits with Chart
+    console.log('Processing Slide 12: Cost Benefits...');
     const { slide: slide11, placeholders } = await html2pptx(path.join(slidesDir, 'slide11-cost-benefits.html'), pptx);
 
     // Add cost comparison chart
@@ -89,20 +93,20 @@ async function createPresentation() {
         });
     }
 
-    // Slide 12: MCP vs Others
-    console.log('Processing Slide 12: MCP vs A2A vs ACP...');
+    // Slide 13: MCP vs Others
+    console.log('Processing Slide 13: MCP vs A2A vs ACP...');
     await html2pptx(path.join(slidesDir, 'slide12-mcp-vs-others.html'), pptx);
 
-    // Slide 13: Getting Started
-    console.log('Processing Slide 13: Getting Started...');
+    // Slide 14: Getting Started
+    console.log('Processing Slide 14: Getting Started...');
     await html2pptx(path.join(slidesDir, 'slide13-getting-started.html'), pptx);
 
-    // Slide 14: Resources
-    console.log('Processing Slide 14: Resources...');
+    // Slide 15: Resources
+    console.log('Processing Slide 15: Resources...');
     await html2pptx(path.join(slidesDir, 'slide14-resources.html'), pptx);
 
-    // Slide 15: Q&A
-    console.log('Processing Slide 15: Q&A...');
+    // Slide 16: Q&A
+    console.log('Processing Slide 16: Q&A...');
     await html2pptx(path.join(slidesDir, 'slide15-qanda.html'), pptx);
 
     // Save presentation
@@ -112,7 +116,7 @@ async function createPresentation() {
 
     console.log(`\n✅ Presentation created successfully!`);
     console.log(`📁 Output: ${outputPath}`);
-    console.log(`📊 Total slides: 15\n`);
+    console.log(`📊 Total slides: 16\n`);
 }
 
 createPresentation().catch(error => {
