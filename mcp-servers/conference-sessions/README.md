@@ -332,3 +332,13 @@ These demonstrate:
 - Level filtering
 - Track discovery
 - Real conference data
+
+## Screenshots
+
+### MCP Tools in LM Studio
+
+This is what the Conference Sessions MCP tools look like when loaded in LM Studio:
+
+![MCP Tools Available](../../images/LMStudioMCPTools.png)
+
+The tools appear in the LM Studio UI, making them available for the AI to use when answering your queries. Each tool has a clear description and the AI automatically chooses which tool(s) to call based on your natural language request.

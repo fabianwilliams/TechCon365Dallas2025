@@ -90,7 +90,11 @@ This repository contains two production-ready MCP servers demonstrating **MCP co
 │       ├── server.py           # 4 MCP tools
 │       ├── graph_auth.py       # OAuth manager
 │       └── requirements.txt
-├── presentation/               # PowerPoint slides (TBD)
+├── presentation/               # 16-slide PowerPoint deck
+│   ├── slides/                 # HTML source slides
+│   ├── generate-presentation.js # Build script
+│   └── TechCon365-MCP-Presentation.pptx
+├── images/                     # Screenshots and visuals
 ├── ARCHITECTURE.md             # Technical design
 ├── JOURNEY.md                  # Development journey
 ├── MCP-COMPOSITION-SUCCESS.md  # Demo verification
@@ -184,6 +188,28 @@ cp lmstudio-mcp-config.json.template lmstudio-mcp-config.json
 ```
 
 **Watch**: Your prompts never leave your machine, but you get full enterprise integration!
+
+---
+
+## 🎨 Presentation Created with Claude Skills
+
+This entire PowerPoint presentation (16 slides) was generated using **Claude Skills** with the **pptx skill** - demonstrating the power of MCP in action!
+
+![Presentation Created with Claude Skills](images/EvenUseClaudeSkillsMCPToMakeDeck.png)
+
+The presentation was created by:
+1. Writing HTML slides with proper styling and validation
+2. Using Claude's pptx skill to convert HTML → PowerPoint
+3. Iteratively fixing layout issues and overflow errors
+4. Adding charts and visual elements programmatically
+
+**Result**: Production-ready 16-slide deck with:
+- Architecture flow diagrams
+- Privacy comparison tables
+- Cost analysis charts
+- MCP composition visualizations
+
+**Time saved**: What would take hours manually took minutes with Claude Skills!
 
 ---
 

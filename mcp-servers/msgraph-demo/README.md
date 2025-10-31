@@ -366,6 +366,29 @@ msgraph-demo/
 - No credentials stored in code
 - Environment variables for configuration
 
+## Screenshots
+
+### MCP Composition in Action
+
+This screenshot shows **both MCP servers working together** - the AI used the Conference Sessions MCP to find session details, then used the Graph MCP to add it to the calendar:
+
+![MCP Composition Demo](../../images/LMStudioUserQueriesBoth.png)
+
+Notice how the AI seamlessly coordinated between two independent servers:
+1. Searched conference sessions (Conference MCP)
+2. Retrieved session details
+3. Created calendar event (Graph MCP)
+
+All from a single natural language request!
+
+### Calendar Event Created
+
+The result of the Graph MCP in action - a new calendar event successfully created in Microsoft 365:
+
+![Calendar Entry Created](../../images/MCPToolSendsGraphCalEntry.png)
+
+This demonstrates the write operation capability of MCP servers and real enterprise API integration with OAuth security.
+
 ## License
 
 Built for TechCon365 Dallas 2025 presentation on MCP.
