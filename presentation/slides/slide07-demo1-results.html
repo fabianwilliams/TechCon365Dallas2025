@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+.header { background: #181B24; padding: 25pt 40pt; }
+.header h1 { color: #B165FB; font-size: 36pt; margin: 0; }
+.content { padding: 20pt 40pt 50pt 40pt; flex: 1; }
+.content h2 { color: #181B24; font-size: 24pt; margin: 0 0 15pt 0; }
+.content ul { margin: 10pt 0; padding-left: 20pt; }
+.content li { color: #2E4053; font-size: 18pt; margin: 8pt 0; line-height: 1.3; }
+.highlight { background: #40695B; color: #FFFFFF; padding: 12pt; border-radius: 8pt; margin-top: 15pt; }
+.highlight p { color: #FFFFFF; font-size: 16pt; font-weight: bold; margin: 0; }
+.key-point { color: #B165FB; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Demo #1: What Just Happened?</h1>
+</div>
+<div class="content">
+  <h2>Key Observations:</h2>
+  <ul>
+    <li><span class="key-point">Instant results</span> - No cloud API calls</li>
+    <li><span class="key-point">Your prompts stayed local</span> - Never left this room</li>
+    <li><span class="key-point">Natural language</span> - No complex SQL queries</li>
+    <li><span class="key-point">Structured data</span> - 182 sessions in SQLite with full-text search</li>
+  </ul>
+  <div class="highlight">
+    <p>Same pattern works for YOUR data: Product catalogs, CRM records, documentation, internal systems</p>
+  </div>
+</div>
+</body>
+</html>

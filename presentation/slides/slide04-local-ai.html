@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+.header { background: #181B24; padding: 25pt 40pt; }
+.header h1 { color: #B165FB; font-size: 36pt; margin: 0; }
+.content { padding: 20pt 40pt 50pt 40pt; flex: 1; }
+.content h2 { color: #181B24; font-size: 22pt; margin: 0 0 12pt 0; }
+.comparison { display: flex; margin: 15pt 0; }
+.col { flex: 1; padding: 12pt; border-radius: 8pt; }
+.cloud { background: #FFEBEE; border-left: 5pt solid #FE4447; }
+.local { background: #E8F5E9; border-left: 5pt solid #40695B; }
+.col h3 { color: #181B24; font-size: 16pt; margin: 0 0 8pt 0; }
+.col p { color: #2E4053; font-size: 13pt; margin: 4pt 0; line-height: 1.25; font-family: Courier New, monospace; }
+.highlight-box { background: #B165FB; color: #FFFFFF; padding: 10pt; border-radius: 8pt; margin-top: 12pt; text-align: center; }
+.highlight-box p { color: #FFFFFF; font-size: 16pt; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>The Local AI Advantage</h1>
+</div>
+<div class="content">
+  <h2>Privacy Flow Comparison</h2>
+  <div class="comparison">
+    <div class="col cloud">
+      <h3>❌ Traditional Cloud AI</h3>
+      <p>Prompt → [OpenAI Cloud]</p>
+      <p>↑ SEES EVERYTHING ↑</p>
+      <p>→ API → Your Data</p>
+    </div>
+    <div class="col local">
+      <h3>✅ Local AI + MCP</h3>
+      <p>Prompt → [Your AI]</p>
+      <p>↑ PRIVATE ↑</p>
+      <p>→ API → Your Data</p>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <p>Best of both worlds: Privacy of local AI + Power of cloud APIs</p>
+  </div>
+</div>
+</body>
+</html>

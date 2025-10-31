@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+.header { background: #181B24; padding: 25pt 40pt; }
+.header h1 { color: #B165FB; font-size: 36pt; margin: 0; }
+.content { padding: 20pt 40pt 50pt 40pt; flex: 1; }
+.content h2 { color: #181B24; font-size: 18pt; margin: 0 0 8pt 0; }
+.comparison { display: flex; margin: 10pt 0; }
+.item { flex: 1; background: #F4F6F6; padding: 12pt; margin: 0 4pt; border-radius: 8pt; border-left: 5pt solid #40695B; }
+.item h3 { color: #181B24; font-size: 15pt; margin: 0 0 6pt 0; font-weight: bold; }
+.item p { color: #2E4053; font-size: 13pt; margin: 0; line-height: 1.25; }
+.item.mcp { border-left-color: #B165FB; background: #F3E5FF; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>MCP vs. A2A vs. ACP vs. Skills</h1>
+</div>
+<div class="content">
+  <h2>Understanding the Ecosystem:</h2>
+  <div class="comparison">
+    <div class="item mcp">
+      <h3>MCP</h3>
+      <p><b>AI → Your Data</b></p>
+      <p>Connect AI assistants to data sources and APIs</p>
+    </div>
+    <div class="item">
+      <h3>A2A</h3>
+      <p><b>AI → AI</b></p>
+      <p>AIs talking to each other (agent-to-agent)</p>
+    </div>
+  </div>
+  <div class="comparison">
+    <div class="item">
+      <h3>ACP</h3>
+      <p><b>AI ↔ AI Workflow</b></p>
+      <p>Agent Communication Protocol for coordination</p>
+    </div>
+    <div class="item">
+      <h3>Claude Skills</h3>
+      <p><b>Packaged Capabilities</b></p>
+      <p>Pre-built workflows that use MCP servers</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

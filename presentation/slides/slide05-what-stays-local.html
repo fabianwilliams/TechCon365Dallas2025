@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+.header { background: #181B24; padding: 25pt 40pt; }
+.header h1 { color: #B165FB; font-size: 36pt; margin: 0; }
+.content { padding: 20pt 40pt 50pt 40pt; flex: 1; display: flex; }
+.col { flex: 1; padding-right: 20pt; }
+.col:last-child { padding-right: 0; padding-left: 20pt; }
+.col h2 { color: #181B24; font-size: 20pt; margin: 0 0 15pt 0; }
+.col ul { margin: 0; padding-left: 20pt; }
+.col li { color: #2E4053; font-size: 16pt; margin: 8pt 0; line-height: 1.3; }
+.stays { color: #40695B; font-weight: bold; }
+.travels { color: #277884; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>What Stays Local vs. What Travels</h1>
+</div>
+<div class="content">
+  <div class="col">
+    <h2 class="stays">✅ Stays On Your Machine</h2>
+    <ul>
+      <li>Your prompts and questions</li>
+      <li>AI reasoning and planning</li>
+      <li>Local database queries</li>
+      <li>Conference session data</li>
+      <li>Tool selection logic</li>
+      <li>Intermediate processing steps</li>
+    </ul>
+  </div>
+  <div class="col">
+    <h2 class="travels">🔒 Travels (OAuth-Secured)</h2>
+    <ul>
+      <li>OAuth token exchange (one-time)</li>
+      <li>Microsoft Graph API calls</li>
+      <li>Calendar event creation</li>
+      <li>Email queries (encrypted HTTPS)</li>
+      <li>Structured API requests only</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

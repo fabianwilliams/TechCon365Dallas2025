@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+.header { background: #181B24; padding: 25pt 40pt; }
+.header h1 { color: #B165FB; font-size: 36pt; margin: 0; }
+.content { padding: 20pt 40pt 50pt 40pt; flex: 1; display: flex; }
+.text-col { flex: 1; padding-right: 15pt; }
+.diagram-col { flex: 1; background: #F4F6F6; padding: 12pt; border-radius: 8pt; display: flex; flex-direction: column; justify-content: center; }
+.content h2 { color: #181B24; font-size: 22pt; margin: 0 0 8pt 0; }
+.content p { color: #2E4053; font-size: 13pt; margin: 0 0 8pt 0; line-height: 1.25; }
+.analogy { background: #40695B; color: #FFFFFF; padding: 8pt; border-radius: 8pt; font-size: 11pt; font-style: italic; margin-top: 8pt; }
+.diagram-col p { color: #181B24; font-size: 15pt; margin: 3pt 0; text-align: center; font-family: Courier New, monospace; }
+.arrow { color: #B165FB; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>What is MCP?</h1>
+</div>
+<div class="content">
+  <div class="text-col">
+    <h2>USB for AI</h2>
+    <p>MCP is like USB for AI. Just like USB lets any device connect to any computer, MCP lets any AI connect to any data source through a standard protocol.</p>
+    <p><b>No MCP:</b> Build custom integration for every AI, every API, every time.</p>
+    <p><b>With MCP:</b> Build once, works with ANY MCP-compatible AI.</p>
+    <div class="analogy">
+      <p>Like USB: One standard, all devices work</p>
+    </div>
+  </div>
+  <div class="diagram-col">
+    <p><b>AI Assistant</b></p>
+    <p class="arrow">↕</p>
+    <p><b>MCP Server</b></p>
+    <p class="arrow">↕</p>
+    <p><b>Your Data/API</b></p>
+  </div>
+</div>
+</body>
+</html>

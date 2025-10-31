@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html { background: #ffffff; }
+body {
+  width: 720pt; height: 405pt; margin: 0; padding: 0;
+  background: #FFFFFF; font-family: Arial, sans-serif;
+  display: flex; flex-direction: column;
+}
+.header { background: #181B24; padding: 25pt 40pt; }
+.header h1 { color: #B165FB; font-size: 36pt; margin: 0; }
+.content { padding: 20pt 40pt 50pt 40pt; flex: 1; display: flex; }
+.text-col { flex: 1; padding-right: 20pt; }
+.chart-col { flex: 1; padding-left: 20pt; }
+.content h2 { color: #181B24; font-size: 19pt; margin: 0 0 8pt 0; }
+.content ul { margin: 0; padding-left: 20pt; }
+.content li { color: #2E4053; font-size: 14pt; margin: 4pt 0; line-height: 1.2; }
+.roi-box { background: #40695B; color: #FFFFFF; padding: 8pt; border-radius: 8pt; margin-top: 8pt; text-align: center; }
+.roi-box p { color: #FFFFFF; font-size: 15pt; font-weight: bold; margin: 0; }
+.chart-placeholder { width: 100%; height: 220pt; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Cost & ROI Benefits</h1>
+</div>
+<div class="content">
+  <div class="text-col">
+    <h2>Cloud AI Per-Token Cost</h2>
+    <ul>
+      <li>GPT-4: ~$0.03/1K tokens (input)</li>
+      <li>Heavy usage = $1000s/month</li>
+      <li>Scales linearly with usage</li>
+    </ul>
+    <h2 style="margin-top: 20pt;">Local AI One-Time Cost</h2>
+    <ul>
+      <li>Hardware: $2K-$5K</li>
+      <li>Model: Free (Llama, Mistral)</li>
+      <li>Electricity: Minimal ongoing</li>
+    </ul>
+    <div class="roi-box">
+      <p>ROI: 2-6 months with heavy usage</p>
+    </div>
+  </div>
+  <div class="chart-col">
+    <div id="cost-chart" class="placeholder chart-placeholder"></div>
+  </div>
+</div>
+</body>
+</html>
