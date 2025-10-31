@@ -11,6 +11,134 @@ This MCP server enables LLMs to interact with Microsoft 365 through 4 specialize
 
 **Key Feature**: Demonstrates MCP composition by working alongside the Conference Sessions MCP to add conference sessions directly to your calendar!
 
+## How It Works: Enterprise Integration with MCP
+
+### What Makes This Different?
+
+Unlike the Conference Sessions MCP (local SQLite), this server connects to **external enterprise APIs** through OAuth. It demonstrates:
+- Secure authentication with Microsoft identity platform
+- Real-time data from cloud services
+- Write operations (creating calendar events)
+- **MCP Composition** - multiple servers working together
+
+### The Flow (Step by Step)
+
+```
+1. User asks: "Add Session 87 to my calendar for Thursday at 9am"
+   ↓
+2. Claude Desktop analyzes the request
+   ↓
+3. Claude uses TWO MCP servers:
+   - conference_search_sessions → Find Session 87 details
+   - graph_create_calendar_event → Add to calendar
+   ↓
+4. server.py (Graph MCP) receives the calendar request
+   ↓
+5. graph_auth.py retrieves OAuth access token
+   ↓
+6. HTTP POST to https://graph.microsoft.com/v1.0/me/calendar/events
+   ↓
+7. Microsoft 365 creates the event
+   ↓
+8. Response returned: "Calendar event created successfully!"
+```
+
+**This is MCP composition in action!** Two independent servers, one AI orchestrating them.
+
+### What's Inside server.py?
+
+**FastMCP Framework**: Same framework as Conference Sessions MCP, but now calling external APIs instead of local database.
+
+**Tool Functions**: 4 tools that wrap Microsoft Graph API:
+1. `graph_read_emails` → GET /me/messages
+2. `graph_search_emails` → GET /me/messages?$search="query"
+3. `graph_create_calendar_event` → POST /me/calendar/events
+4. `graph_get_calendar_events` → GET /me/calendar/calendarView
+
+**OAuth Authentication Flow**:
+```
+1. First run: server.py needs authentication
+2. graph_auth.py initiates device code flow
+3. User visits link, enters code, approves permissions
+4. Access token + refresh token stored in ~/.msgraph-mcp/
+5. Future requests: token automatically refreshed when expired
+```
+
+### Configuration Files Explained
+
+**graph_auth.py**: Handles all OAuth complexity so server.py can focus on tool logic. Manages:
+- Device code flow authentication
+- Token caching and refresh
+- Secure token storage
+
+**requirements.txt**: Python libraries needed:
+- `fastmcp` - MCP framework (same as Conference MCP)
+- `requests` - HTTP client for Graph API calls
+- `python-dateutil` - Parse natural language dates
+- `msal` - Microsoft Authentication Library
+
+**Environment Variables**: Credentials stored outside code:
+```bash
+TENANT_ID="your-azure-tenant-id"
+CLIENT_ID="your-app-registration-id"
+# CLIENT_SECRET optional for device flow
+```
+
+**Claude Desktop Config**: Links Claude to this server with credentials:
+```json
+{
+  "mcpServers": {
+    "msgraph": {
+      "command": "python",
+      "args": ["/path/to/server.py"],
+      "env": {
+        "TENANT_ID": "...",
+        "CLIENT_ID": "..."
+      }
+    }
+  }
+}
+```
+
+### The Privacy Model
+
+**What Stays Local**:
+- Your prompts and queries
+- The AI model (LM Studio runs locally)
+- MCP server code
+- OAuth tokens (cached locally)
+
+**What Travels Over Network**:
+- OAuth authentication handshake
+- API requests to graph.microsoft.com (HTTPS encrypted)
+- Only specific data requested (emails, calendar events)
+
+**Security Guarantees**:
+- OAuth 2.0 industry standard
+- Tokens expire and refresh automatically
+- Single-tenant app (only your organization can use it)
+- Scoped permissions (only Mail.Read, Calendars.ReadWrite)
+
+### Why MCP Composition Matters
+
+Traditional approach:
+```
+Build one monolithic integration → Hard to maintain
+Add more features → Complexity grows exponentially
+```
+
+MCP approach:
+```
+Build small, focused servers → Each does one thing well
+Compose them dynamically → AI connects them as needed
+Add new servers → Doesn't affect existing ones
+```
+
+**Example**: You want to add Salesforce?
+1. Build a Salesforce MCP server (same FastMCP pattern)
+2. Add to Claude Desktop config
+3. Done! AI can now connect Graph + Conference + Salesforce
+
 ## Features
 
 - **Email Access**: Read recent emails, search by sender/keyword

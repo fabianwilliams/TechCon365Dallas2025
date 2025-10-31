@@ -10,6 +10,92 @@ This MCP server enables LLMs to query and explore conference sessions through 6 
 - List all tracks and speakers
 - Filter by location or difficulty level
 
+## How It Works: Understanding the Architecture
+
+### What is an MCP Server?
+
+An MCP server is like a **translator** between AI and your data. Think of it as a waiter in a restaurant:
+- The AI (customer) asks questions in natural language
+- The MCP server (waiter) translates those into database queries
+- The data source (kitchen) provides the answer
+- The server formats it nicely and returns it to the AI
+
+### The Flow (Step by Step)
+
+```
+1. User asks: "Show me all Copilot sessions"
+   ↓
+2. Claude Desktop (MCP Client) receives the query
+   ↓
+3. Claude decides to use the conference_search_sessions tool
+   ↓
+4. server.py receives: { query: "Copilot", limit: 20 }
+   ↓
+5. server.py queries SQLite: SELECT * FROM sessions WHERE ...
+   ↓
+6. Database returns matching sessions
+   ↓
+7. server.py formats results as markdown
+   ↓
+8. Claude Desktop displays: "Found 8 sessions..."
+```
+
+### What's Inside server.py?
+
+**FastMCP Framework**: A Python library that makes building MCP servers simple. Instead of handling low-level protocol details, you just write functions with the `@mcp.tool()` decorator.
+
+**Tool Functions**: Each tool (like `conference_search_sessions`) is a Python function that:
+1. Receives validated input parameters (thanks to Pydantic models)
+2. Queries the SQLite database
+3. Formats results (Markdown or JSON)
+4. Returns to the AI
+
+**Pydantic Models**: These are like forms with validation rules. They ensure the AI sends the right data types:
+```
+SearchSessionsInput:
+  - query: string (2-200 characters)
+  - track: optional string
+  - level: must be "Intro/Overview", "Intermediate", or "Advanced"
+  - limit: number between 1-100
+```
+
+If the AI sends invalid data (like `limit: 500`), Pydantic rejects it automatically.
+
+### Configuration Files Explained
+
+**sessions.db**: A SQLite database file containing all 182 conference sessions. Created by `database.py` and `parser.py` from the PDF schedule.
+
+**requirements.txt**: Lists Python libraries needed:
+- `fastmcp` - The MCP framework
+- `pydantic` - Data validation
+- (SQLite is built into Python)
+
+**Claude Desktop Config**: Tells Claude Desktop where to find this server. Like adding a phone number to contacts - now Claude knows how to call this service.
+
+```json
+{
+  "mcpServers": {
+    "conference-sessions": {
+      "command": "python",
+      "args": ["/path/to/server.py"]
+    }
+  }
+}
+```
+
+### Why This Architecture Matters
+
+**Separation of Concerns**:
+- AI handles natural language understanding
+- MCP server handles data access logic
+- Database handles storage and querying
+
+**Security**: Your data never leaves your machine. The AI runs locally, queries stay local, only results are shown.
+
+**Reusability**: The same MCP server works with Claude Desktop, LM Studio, or any MCP-compatible client.
+
+**Simplicity**: No complex REST APIs, no authentication tokens, no server hosting. Just Python running on your machine.
+
 ## Features
 
 - **Full-text search** across 182 conference sessions
