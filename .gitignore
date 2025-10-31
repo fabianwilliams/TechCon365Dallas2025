@@ -11,6 +11,15 @@
 *.sln.docstates
 *.env
 
+# MCP Configuration Files (contain local paths)
+lmstudio-mcp-config.json
+.claude/
+
+# Token Cache Files (contain authentication tokens)
+token_cache.json
+.msgraph-mcp/
+~/.msgraph-mcp/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -416,3 +425,10 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Additional security for public repo
+*.backup
+.cache/
+**/token_cache*.json
+lmstudio-mcp-config.json
+claude_desktop_config.json

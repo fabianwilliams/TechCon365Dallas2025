@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "conference-sessions": {
+      "command": "/path/to/your/python",
+      "args": [
+        "/path/to/TechCon365Dallas2025/mcp-servers/conference-sessions/server.py"
+      ],
+      "env": {}
+    },
+    "msgraph": {
+      "command": "/path/to/your/python", 
+      "args": [
+        "/path/to/TechCon365Dallas2025/mcp-servers/msgraph-demo/server.py"
+      ],
+      "env": {
+        "TENANT_ID": "common",
+        "CLIENT_ID": "14d82eec-204b-4c2f-b7e8-296a70dab67e"
+      }
+    }
+  }
+}
